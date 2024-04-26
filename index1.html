@@ -50,24 +50,30 @@
             <a class="btn btn-cta-primary pull-right" href="mailto:nirmalsinghsandeep@gmail.com"><i class="fa fa-paper-plane"></i> Contact me</a>
             <a class="btn btn-cta-primary pull-right" href="#" onclick="changeLanguage();"><i class="fa fa-globe"></i> FR/EN</a>
 
-    <script>
-        function changeLanguage() {
-            // Récupérer l'URL actuelle
-            var currentUrl = window.location.href;
+<script>
+    function changeLanguage() {
+        // Récupérer l'URL actuelle
+        var currentUrl = window.location.href;
 
-            // Vérifier si l'URL contient "index.html" ou "index1.html"
-            if (currentUrl.indexOf('index.html') !== -1) {
-                // Si l'URL actuelle est index.html, changer vers index1.html
-                currentUrl = currentUrl.replace('index.html', 'index1.html');
-            } else if (currentUrl.indexOf('index1.html') !== -1) {
-                // Si l'URL actuelle est index1.html, changer vers index.html
-                currentUrl = currentUrl.replace('index1.html', 'index.html');
-            }
-
-            // Rediriger vers la nouvelle URL
-            window.location.href = currentUrl;
+        // Vérifier si l'URL se termine par "/" et si oui, ajouter "index.html" à l'URL
+        if (currentUrl.endsWith('/')) {
+            currentUrl += 'index.html';
         }
-    </script>
+
+        // Vérifier si l'URL contient "index.html" ou "index1.html"
+        if (currentUrl.indexOf('index.html') !== -1) {
+            // Si l'URL actuelle est index.html, changer vers index1.html
+            currentUrl = currentUrl.replace('index.html', 'index1.html');
+        } else if (currentUrl.indexOf('index1.html') !== -1) {
+            // Si l'URL actuelle est index1.html, changer vers index.html
+            currentUrl = currentUrl.replace('index1.html', 'index.html');
+        }
+
+        // Rediriger vers la nouvelle URL
+        window.location.href = currentUrl;
+    }
+</script>
+
         </div><!--//container-->
         
     </header><!--//header-->
